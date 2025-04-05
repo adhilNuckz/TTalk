@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "295172946895",
+    "project_id": "t-talk-3a00a",
+    "storage_bucket": "t-talk-3a00a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295172946895:android:0adbd86256f088835e30ba",
+        "android_client_info": {
+          "package_name": "com.example.ttalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgPjRnjnJHcl8SKH4Kjc-pazCTJOIRkQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
