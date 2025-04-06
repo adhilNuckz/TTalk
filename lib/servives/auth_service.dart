@@ -43,6 +43,25 @@ class AuthService {
   }
 
 
+  Future<bool> signup (String email , String password ) async {
+    try {
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
+      if (credential.user != null) {
+        _user = credential.user ;
+        return true;
+      }
+    } catch (e) {
+
+      print(e);
+      return false;
+      
+    }
+    return false;
+  }
+ 
+
 
   void authStateChangesStreamListener (User ? user ) {
       if (user != null ) {

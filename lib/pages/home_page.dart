@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:ttalk/servives/alert_services.dart';
 import 'package:ttalk/servives/auth_service.dart';
-import 'package:ttalk/servives/navigation_service.dart'; 
+import 'package:ttalk/servives/navigation_service.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -11,17 +11,14 @@ class Homepage extends StatefulWidget {
   State<Homepage> createState() => _HomepageState();
 }
 
-
 class _HomepageState extends State<Homepage> {
-
   final GetIt _getIt = GetIt.instance;
 
-  late AuthService _authService ; 
-  late NavigationService _navigationService ;
-  late AlertServices _alertServices ;
+  late AuthService _authService;
+  late NavigationService _navigationService;
+  late AlertServices _alertServices;
 
-
-@override
+  @override
   void initState() {
     super.initState();
 
@@ -33,24 +30,26 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 203, 177, 48),
       appBar: AppBar(
         title: const Text("Area 52"),
+        backgroundColor: const Color.fromARGB(255, 203, 177, 48),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
             color: Colors.red,
             onPressed: () async {
-              bool result = await  _authService.logout();
+              bool result = await _authService.logout();
 
               if (result) {
                 _alertServices.showToast(
-                text: "Logout successful",
-                icon: Icons.check_circle,
+                  text: "Logout successful",
+                  icon: Icons.check_circle,
                 );
               } else {
                 _alertServices.showToast(
                   text: "Logout failed",
-                icon: Icons.check_circle,
+                  icon: Icons.check_circle,
                 );
               }
 
@@ -62,16 +61,28 @@ class _HomepageState extends State<Homepage> {
                     content: Text("Logout failed"),
                   ),
                 );
-              }},
+              }
+            },
           ),
         ],
       ),
-      
-      body: Center(
-        child: Text("Welcome to the Home Page!"),
-        
-      ),
-      
+      body: _buildUI(),
     );
+  }
+
+  Widget _buildUI() {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 10,
+        ),
+        child: _chatList(),
+      ),
+    );
+  }
+
+  Widget _chatList() {
+    return Container();
   }
 }
